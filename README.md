@@ -1,1 +1,1 @@
-# coinjs
+# money.js
