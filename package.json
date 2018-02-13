@@ -1,5 +1,5 @@
 {
-  "name": "money.js",
+  "name": "coinage.js",
   "version": "1.0.1",
   "description": "A javascript library for handling money",
   "main": "src/index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/trentjones21/money.js.git"
+    "url": "git+https://github.com/trentjones21/coinage.js.git"
   },
   "keywords": [
     "money",
@@ -17,9 +17,9 @@
   "author": "Trent Jones <trentjones21@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/trentjones21/money.js/issues"
+    "url": "https://github.com/trentjones21/coinage.js/issues"
   },
-  "homepage": "https://github.com/trentjones21/money.js#readme",
+  "homepage": "https://github.com/trentjones21/coinage.js#readme",
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.1.2",
