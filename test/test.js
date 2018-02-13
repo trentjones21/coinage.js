@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const Money = require('../src').Money;
+const Money = require('../src');
 
 describe('Testing money.js', function() {
   it('should instantiate from a 2 decimal float', () => {

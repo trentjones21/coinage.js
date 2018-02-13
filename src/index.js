@@ -1,5 +1,3 @@
 const Money = require('./money');
 
-module.exports = {
-  Money
-}
+module.exports = Money;
