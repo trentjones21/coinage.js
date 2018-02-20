@@ -131,5 +131,25 @@ describe('Testing money.js', function() {
     expect(b.greaterThan(c)).to.equal(false);
     expect(b.greaterThanOrEqual(c)).to.equal(true);
   })
+
+  it('should correctly return the max value', () => {
+    const a = Money.fromFloat(5);
+    const b = Money.fromFloat(6);
+    const c = Money.fromFloat(6);
+    expect(a.max(b)).to.deep.equal(b);
+    expect(b.max(a)).to.deep.equal(b);
+    expect(b.max(c)).to.deep.equal(b);
+    expect(b.max(c)).to.deep.equal(c);
+  })
+
+  it('should correctly return the min value', () => {
+    const a = Money.fromFloat(5);
+    const b = Money.fromFloat(6);
+    const c = Money.fromFloat(6);
+    expect(a.min(b)).to.deep.equal(a);
+    expect(b.min(a)).to.deep.equal(a);
+    expect(b.min(c)).to.deep.equal(b);
+    expect(b.min(c)).to.deep.equal(c);
+  })
 });
 
