@@ -26,12 +26,12 @@ class Money {
   */
   static fromFloat(num) {
     if (typeof num !== 'number') {
-      throw ('MoneyError: fromFloat requires a number. Recieved: ' + typeof num);
+      throw new Error('MoneyError: fromFloat requires a number. Recieved: ' + typeof num).stack;
     }
 
     const numberOfDecimals = countDecimals(num);
     if (numberOfDecimals >= 3) {
-      throw ('MoneyError: Number can have no more than 2 decimal places.  Recieved: ' + num);
+      throw new Error('MoneyError: Number can have no more than 2 decimal places.  Recieved: ' + num).stack;
     }
 
     return new Money({
