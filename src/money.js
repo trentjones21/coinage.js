@@ -35,7 +35,7 @@ class Money {
     }
 
     return new Money({
-      cents: num * 100
+      cents: round(num * 100)
     })
   }
 

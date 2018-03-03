@@ -151,5 +151,10 @@ describe('Testing money.js', function() {
     expect(b.min(c)).to.deep.equal(b);
     expect(b.min(c)).to.deep.equal(c);
   })
+
+  it('should correctly set the cents', () => {
+    const a = Money.fromFloat(2342.22);
+    expect(a.cents).to.equal(234222);
+  })
 });
 
