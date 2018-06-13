@@ -1,5 +1,5 @@
 {
-  "name": "coinage.js",
+  "name": "@trentjones21/coinagejs",
   "version": "1.0.8",
   "description": "A javascript library for handling money",
   "main": "src/index.js",
