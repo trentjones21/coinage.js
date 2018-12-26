@@ -1,4 +1,4 @@
-export interface Money {
+export class Money {
   fromFloat(): Money;
   fromString(): Money;
   valueOf(): Number;
