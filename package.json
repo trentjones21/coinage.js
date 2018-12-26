@@ -3,6 +3,7 @@
   "version": "1.0.9",
   "description": "A javascript library for handling money",
   "main": "src/index.js",
+  "types": "src/types.ts",
   "scripts": {
     "test": "mocha",
     "docs": "jsdoc --configure .jsdoc.json --verbose"
