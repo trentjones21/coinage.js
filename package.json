@@ -1,6 +1,6 @@
 {
   "name": "coinagejs",
-  "version": "1.0.10",
+  "version": "2.0.0",
   "description": "A javascript library for handling money",
   "main": "src/index.js",
   "types": "src/types.ts",
