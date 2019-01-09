@@ -190,7 +190,7 @@ class Money {
    */
   max(other) {
     if (other instanceof Money) {
-      return this.dollars > other.dollars ? this : other;
+      return this.dollars.gt(other.dollars) ? this : other;
     } else {
       throw 'MoneyError: You must compare another instance of type Money.  Recieved: ' + typeof other;
     }
@@ -203,7 +203,7 @@ class Money {
    */
   min(other) {
     if (other instanceof Money) {
-      return this.dollars < other.dollars ? this : other;
+      return this.dollars.lt(other.dollars) ? this : other;
     } else {
       throw 'MoneyError: You must compare another instance of type Money.  Recieved: ' + typeof other;
     }

@@ -146,10 +146,14 @@ describe('Testing money.js', function() {
     const a = Money.fromFloat(5);
     const b = Money.fromFloat(6);
     const c = Money.fromFloat(6);
+    const d = Money.fromFloat(500);
+    const e = Money.fromFloat(1000);
+
     expect(a.min(b)).to.deep.equal(a);
     expect(b.min(a)).to.deep.equal(a);
     expect(b.min(c)).to.deep.equal(b);
     expect(b.min(c)).to.deep.equal(c);
+    expect(d.min(e)).to.deep.equal(d);
   });
 
   it('should get a correcly formatted money string', () => {
