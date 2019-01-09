@@ -22,7 +22,9 @@
     "url": "https://github.com/trentjones21/coinage.js/issues"
   },
   "homepage": "https://github.com/trentjones21/coinage.js#readme",
-  "dependencies": {},
+  "dependencies": {
+    "big.js": "^5.2.2"
+  },
   "devDependencies": {
     "chai": "^4.1.2",
     "jsdoc": "^3.5.5",

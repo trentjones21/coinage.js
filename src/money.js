@@ -1,10 +1,12 @@
+const b = require('big.js');
+
 function countDecimals(value) {
   if (value % 1 != 0) return value.toString().split('.')[1].length;
   return 0;
 }
 
 function round(num) {
-  return +(Math.round(num + 'e+0') + 'e-0');
+  return num.round(2);
 }
 
 class Money {
@@ -12,7 +14,7 @@ class Money {
    * @access private
    */
   constructor(config) {
-    this.cents = config.cents;
+    this.dollars = new b(config.dollars).round(2);
   }
 
   /**
@@ -32,7 +34,7 @@ class Money {
     }
 
     return new Money({
-      cents: round(num * 100)
+      dollars: num
     });
   }
 
@@ -55,7 +57,7 @@ class Money {
    * @return {number}
    */
   valueOf() {
-    return this.cents / 100;
+    return parseFloat(this.dollars.toFixed(2));
   }
 
   /**
@@ -74,7 +76,7 @@ class Money {
   plus(other) {
     if (other instanceof Money) {
       return new Money({
-        cents: this.cents + other.cents
+        dollars: this.dollars.plus(other.dollars)
       });
     } else {
       throw 'MoneyError: You must add another instance of type Money.  Recieved: ' + typeof other;
@@ -89,7 +91,7 @@ class Money {
   minus(other) {
     if (other instanceof Money) {
       return new Money({
-        cents: this.cents - other.cents
+        dollars: this.dollars - other.dollars
       });
     } else {
       throw 'MoneyError: You must subtract another instance of type Money.  Recieved: ' + typeof other;
@@ -104,7 +106,7 @@ class Money {
   times(other) {
     if (typeof other === 'number') {
       return new Money({
-        cents: round(this.cents * other)
+        dollars: round(this.dollars.times(other))
       });
     } else {
       throw 'MoneyError: You must subtract another instance of type Number.  Recieved: ' + typeof other;
@@ -122,7 +124,7 @@ class Money {
         throw 'MoneyError: Cannot divide by 0';
       }
       return new Money({
-        cents: round(this.cents / other)
+        dollars: round(this.dollars.div(other))
       });
     } else {
       throw 'MoneyError: You must subtract another instance of type Number.  Recieved: ' + typeof other;
@@ -136,7 +138,7 @@ class Money {
    */
   greaterThan(other) {
     if (other instanceof Money) {
-      return this.cents > other.cents;
+      return this.dollars > other.dollars;
     } else {
       throw 'MoneyError: You must compare another instance of type Money.  Recieved: ' + typeof other;
     }
@@ -149,7 +151,7 @@ class Money {
    */
   greaterThanOrEqual(other) {
     if (other instanceof Money) {
-      return this.cents >= other.cents;
+      return this.dollars >= other.dollars;
     } else {
       throw 'MoneyError: You must compare another instance of type Money.  Recieved: ' + typeof other;
     }
@@ -162,7 +164,7 @@ class Money {
    */
   lessThan(other) {
     if (other instanceof Money) {
-      return this.cents < other.cents;
+      return this.dollars < other.dollars;
     } else {
       throw 'MoneyError: You must compare another instance of type Money.  Recieved: ' + typeof other;
     }
@@ -175,7 +177,7 @@ class Money {
    */
   lessThanOrEqual(other) {
     if (other instanceof Money) {
-      return this.cents <= other.cents;
+      return this.dollars <= other.dollars;
     } else {
       throw 'MoneyError: You must compare another instance of type Money.  Recieved: ' + typeof other;
     }
@@ -188,7 +190,7 @@ class Money {
    */
   max(other) {
     if (other instanceof Money) {
-      return this.cents > other.cents ? this : other;
+      return this.dollars > other.dollars ? this : other;
     } else {
       throw 'MoneyError: You must compare another instance of type Money.  Recieved: ' + typeof other;
     }
@@ -201,7 +203,7 @@ class Money {
    */
   min(other) {
     if (other instanceof Money) {
-      return this.cents < other.cents ? this : other;
+      return this.dollars < other.dollars ? this : other;
     } else {
       throw 'MoneyError: You must compare another instance of type Money.  Recieved: ' + typeof other;
     }

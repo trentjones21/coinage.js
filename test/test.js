@@ -152,11 +152,6 @@ describe('Testing money.js', function() {
     expect(b.min(c)).to.deep.equal(c);
   });
 
-  it('should correctly set the cents', () => {
-    const a = Money.fromFloat(2342.22);
-    expect(a.cents).to.equal(234222);
-  });
-
   it('should get a correcly formatted money string', () => {
     expect(Money.fromFloat(2342.22).toUsd()).to.equal('$2,342.22');
     expect(Money.fromFloat(-2342.22).toUsd()).to.equal('-$2,342.22');
